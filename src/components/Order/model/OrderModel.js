@@ -22,7 +22,7 @@ class OrderModel {
 
     // Get particuler Order Detail
 
-    async getOne(condition = {}, attributes = ["order_id"], adminObj, transaction = Transaction) {
+    async getOne(condition = {}, attributes = ["order_id", "status", "created_at"], adminObj, transaction = Transaction) {
         try {
             return await OrderMaster.findOne({
                 where: condition,
