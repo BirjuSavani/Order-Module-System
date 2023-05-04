@@ -7,7 +7,7 @@ class CustomerModel {
     // Add new Customer Details
 
     async addOne(adminObj,
-        transaction = Transaction) {
+        transaction = null) {
         try {
             return await CustomerMaster.create(adminObj, { transaction });
         } catch (error) {
@@ -29,7 +29,7 @@ class CustomerModel {
 
     // Get particuler Customer Detail
 
-    async getOne(condition = {}, attributes = ['customer_id'], adminObj, transaction = Transaction) {
+    async getOne(condition = {}, attributes = ['customer_id'], adminObj, transaction = null) {
         try {
             return await CustomerMaster.findOne({ where: condition, attributes }, adminObj, transaction);
         } catch (error) {
@@ -51,9 +51,9 @@ class CustomerModel {
 
     // Delete Customer Detail for Database
 
-    async dropCustomer(condition = {}, attributes = ["customer_id"], adminObj, transaction = Transaction) {
+    async dropCustomer(condition = {}, attributes = ["customer_id"], adminObj, transaction = null) {
         try {
-            return await CustomerMaster.destroy({ where: condition, attributes }, transaction)
+            return await CustomerMaster.destroy({ where: condition, attributes }, transaction,)
         } catch (error) {
             console.log("Failed to Delete customer \n" + error);
             return res.status(500).json({ error: "Failed to delete Customer. Please try again later." });

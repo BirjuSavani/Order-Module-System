@@ -41,19 +41,19 @@ CartIteamMaster.init({
     //     allowNull: false,
     //     defaultValue: DataTypes.NOW,
     // },
-    // updated_at: {
-    //     type: DataTypes.DATE,
-    //     allowNull: true,
-    //     defaultValue: DataTypes.NOW
-    // },
+    updated_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: DataTypes.NOW
+    },
 
 }, {
     sequelize,
-    paranoid: true,
     underscored: true,
     createdAt: false,
     tableName: 'cart',
-    timestamps: false
+    timestamps: false,
+    updated_at: true
 });
 
 

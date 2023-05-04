@@ -10,12 +10,12 @@ router.get('/', (req, res) => [
 
 router.get('/customerList', CustomerController.get);
 
-router.get('/:id', CustomerController.getOneCustomer);
+router.get('/find/:id', CustomerController.getOneCustomer);
 
 router.post('/add_Customers', [validations.add], CustomerController.add);
 
-router.put('/update/:id', [validations.update], CustomerController.updateOneCustomer);
+router.put('/update/:id', CustomerController.updateOneCustomer);
 
-router.delete('/detele/:id', CustomerController.deleteCustomer)
+router.delete('/delete/:id', CustomerController.deleteCustomer)
 
 export default router;

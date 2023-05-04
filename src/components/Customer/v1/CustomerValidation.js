@@ -25,18 +25,18 @@ class CustomerValidation {
 
         if (!customer_number) {
             errors.customer_number = res.__('CUSTOMER.VALIDATIONS.customer_number.required');
-        } else if (!isLength(customer_number, { min: 1, max: 50 })) {
+        } else if (!isLength(customer_number, { min: 1, max: 44 })) {
             errors.customer_number = res.__('CUSTOMER.VALIDATIONS.customer_number.valid');
         } else if (typeof customer_number !== 'string') {
             errors.customer_number = res.__('CUSTOMER.VALIDATIONS.customer_number.type');
         }
 
         if (!customer_email) {
-            errors.customer_email = res.__('CUSTOMER.VALIDATIONS.email.required');
+            errors.customer_email = res.__('CUSTOMER.VALIDATIONS.customer_email.required');
         } else if (typeof customer_email !== 'string') {
-            errors.customer_email = res.__('CUSTOMER.VALIDATIONS.email.type');
+            errors.customer_email = res.__('CUSTOMER.VALIDATIONS.customer_email.type');
         } else if (!(isEmail(customer_email) && isLength(customer_email, { min: 1, max: 255 }))) {
-            errors.customer_email = res.__('CUSTOMER.VALIDATIONS.email.valid');
+            errors.customer_email = res.__('CUSTOMER.VALIDATIONS.customer_email.valid');
         }
         //else if (customer_email === customer_email) {
         //     errors.customer_email = res.__('CUSTOMER.VALIDATIONS.email.This email is already registered. Please try different email ID. ');

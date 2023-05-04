@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(
 i18n.configure({
     objectNotation: true,
     autoReload: true,
-    defaultLocale: "fr",
+    defaultLocale: "en",
     locales: ['en', 'hi', 'gu', 'fr'], // * Array of locales
     directory: path.join(__dirname, '../../../locales'), // * JSON file location
     // * Sets a custom cookie name to parse locale settings from

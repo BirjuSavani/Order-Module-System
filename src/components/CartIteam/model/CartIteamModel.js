@@ -1,6 +1,4 @@
 import { CartIteamMaster } from '../schema/index.js';
-import { Transaction } from 'sequelize';
-
 
 class CartIteamModel {
 
@@ -40,7 +38,7 @@ class CartIteamModel {
 
     // Delete Cart Product Detail for Database
 
-    async dropCartProduct(condition = {}, attributes = ["cart_id", "product_id"]) {
+    async dropCartProducts(condition = {}, attributes = ["cart_id", "product_id"]) {
         try {
             return await CartIteamMaster.destroy({ where: condition, attributes })
         } catch (error) {

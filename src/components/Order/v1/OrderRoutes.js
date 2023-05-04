@@ -8,7 +8,9 @@ router.get('/', (req, res) => [
     res.status(200).send("ok it's working ORDER")
 ]);
 
-router.get('/:id', OrderController.getOneOrder);
+router.get('/orderList', OrderController.get);
+
+router.get('/find/:id', OrderController.getOneOrder);
 
 router.post('/add-cart', OrderController.add_Cart);
 

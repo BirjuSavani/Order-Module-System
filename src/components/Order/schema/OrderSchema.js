@@ -27,26 +27,28 @@ OrderMaster.init({
         allowNull: false,
         references: {
             model: 'cart',
-            key: 'ID',
+            key: 'id_',
         },
     },
-    // total_price: {
-    //     type: DataTypes.DECIMAL,
-    //     allowNull: false,
-    // },
-    // status: {
-    //     type: DataTypes.ENUM(STRING['pending', 'processing', 'shipped', 'delivered']),
-    //     allowNull: false,
-    // },
-    // created_at: {
-    //     type: DataTypes.DATE,
-    //     allowNull: true
-    // }
+    total_price: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+    },
+    status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    deleted_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    }
+
 }, {
     sequelize,
     paranoid: true,
     underscored: true,
     createdAt: false,
+    deletedAt:true,
     tableName: 'orders',
     timestamps: false
 });
@@ -60,7 +62,5 @@ OrderMaster.hasMany(CartIteamMaster, {
     foreignKey: 'cart_id',
     sourceKey: 'cart_id'
 });
-
-
 
 export default OrderMaster;

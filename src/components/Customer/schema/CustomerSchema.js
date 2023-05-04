@@ -19,6 +19,7 @@ CustomerMaster.init({
     customer_number: {
         type: DataTypes.STRING(50),
         allowNull: false,
+        unique:true
     },
     customer_email: {
         type: DataTypes.STRING(250),

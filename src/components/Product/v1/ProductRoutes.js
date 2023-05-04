@@ -12,11 +12,19 @@ router.get('/', (req, res) => [
 
 router.get('/ProductList', ProductController.get);
 
-router.get('/:id', ProductController.getOneProduct);
+router.get('/find/:id', ProductController.getOneProduct);
 
-router.post('/add_Products', [validations.add], ProductController.add);
+router.get('/categories', ProductController.getcategories);
+
+router.get('/categories/:category', ProductController.getcategory);
+
+router.get('/categories/:category/:brand', ProductController.getcategorybrand);
+
+router.post('/add_Products', ProductController.add);
 
 router.put('/update/:id', [validations.update], ProductController.updateOneProduct);
+
+router.patch('/updates/:id', ProductController.updateOneProducts);
 
 router.delete('/detele/:id', ProductController.deleteProduct)
 

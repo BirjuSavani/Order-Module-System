@@ -7,8 +7,6 @@ class ProductValidation {
         let {
             title,
             price,
-            // discount_percentage,
-            // rating,
             stock,
             brand,
             category,
@@ -27,17 +25,18 @@ class ProductValidation {
 
         if (!price) {
             errors.price = res.__('PRODUCT.VALIDATIONS.price.required');
-        } else if (!DECIMAL(price)) {
-            errors.price = res.__('PRODUCT.VALIDATIONS.price.valid');
-        } else if (typeof title !== 'DECIMAL') {
+        } else if (price <= 0) {
+            errors.price = res.__('PRODUCT.VALIDATIONS.price.mess')
+        } else if (typeof price !== 'number') {
             errors.price = res.__('PRODUCT.VALIDATIONS.price.type');
         }
 
         if (!stock) {
             errors.stock = res.__('PRODUCT.VALIDATIONS.stock.required');
-        } else if (!INTEGER(stock)) {
-            errors.stock = res.__('PRODUCT.VALIDATIONS.stock.valid');
-        } else if (typeof stock !== 'INTEGER') {
+        } else if (stock <= 0) {
+            errors.stock = res.__('PRODUCT.VALIDATIONS.stock.mess')
+        }
+        else if (typeof stock !== 'number') {
             errors.stock = res.__('PRODUCT.VALIDATIONS.stock.type');
         }
 
@@ -64,14 +63,6 @@ class ProductValidation {
         } else if (typeof thumbnail !== 'string') {
             errors.thumbnail = res.__('PRODUCT.VALIDATIONS.thumbnail.type');
         }
-
-        // if (!images) {
-        //     errors.images = res.__('PRODUCT.VALIDATIONS.images.required');
-        // } else if (!isLength(images, { min: 1, max: 355 })) {
-        //     errors.images = res.__('PRODUCT.VALIDATIONS.images.valid');
-        // } else if (typeof images !== 'string') {
-        //     errors.images = res.__('PRODUCT.VALIDATIONS.images.type');
-        // }
 
         if (Object.keys(errors).length > 0) {
             createValidationResponse(res, errors);
@@ -102,17 +93,13 @@ class ProductValidation {
 
         if (!price) {
             errors.price = res.__('PRODUCT.VALIDATIONS.price.required');
-        } else if (!DECIMAL(price)) {
-            errors.price = res.__('PRODUCT.VALIDATIONS.price.valid');
-        } else if (typeof title !== 'DECIMAL') {
+        } else if (typeof price !== 'number') {
             errors.price = res.__('PRODUCT.VALIDATIONS.price.type');
         }
 
         if (!stock) {
             errors.stock = res.__('PRODUCT.VALIDATIONS.stock.required');
-        } else if (!INTEGER(stock)) {
-            errors.stock = res.__('PRODUCT.VALIDATIONS.stock.valid');
-        } else if (typeof stock !== 'INTEGER') {
+        } else if (typeof stock !== 'number') {
             errors.stock = res.__('PRODUCT.VALIDATIONS.stock.type');
         }
 

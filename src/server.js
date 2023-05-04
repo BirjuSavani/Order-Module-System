@@ -9,20 +9,22 @@ config({
 });
 
 // Load App
-// import app from './app';
-import apps from './app.js'
+
+import app from './app.js'
 
 const PORT = process.env.PORT || 3030;
 
-(async() => {
+(async () => {
     try {
         await sequelize.authenticate();
 
-        console.log('DB Connection has been established successfully');
+        console.log('\x1b[33mDB Connection has been established successfully\x1b[0m');
 
-        apps.listen(PORT, () => {
-            console.log(`Server is running on ${PORT}`);
+        const server = app.listen(PORT, () => {
+            console.log(`\x1b[33mServer is running on ${PORT} \x1b[0m`);
+
         })
+
     } catch (error) {
         console.log('Unable to connect to the server \n', error);
 

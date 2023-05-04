@@ -1,7 +1,5 @@
 import STATUS_CODES from 'http-status-codes';
 
-
-
 export const createResponse = (
     res,
     status,
